@@ -5,14 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import static com.example.android.scorekeeper.R.id.score1;
-
 public class MainActivity extends AppCompatActivity {
 
     int score, score2, score3, score4;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
     public void displayForPlayer1(int score) {
-        TextView scoreView = (TextView) findViewById(score1);
+        TextView scoreView = (TextView) findViewById(R.id.score1);
         scoreView.setText(String.valueOf(score));
     }
     public void displayForPlayer2(int score) {
@@ -27,10 +30,6 @@ public class MainActivity extends AppCompatActivity {
         TextView scoreView = (TextView) findViewById(R.id.score4);
         scoreView.setText(String.valueOf(score));
     }
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         savedInstanceState.putInt("score", score);
@@ -40,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
     }
-
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
