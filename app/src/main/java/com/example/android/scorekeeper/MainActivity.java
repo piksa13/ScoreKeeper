@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
         score2 = savedInstanceState.getInt("score2");
         score3 = savedInstanceState.getInt("score3");
         score4 = savedInstanceState.getInt("score4");
+        displayForPlayer1(score);
+        displayForPlayer2(score2);
+        displayForPlayer3(score3);
+        displayForPlayer4(score4);
     }
 
     public void plusOne1 (View view){
