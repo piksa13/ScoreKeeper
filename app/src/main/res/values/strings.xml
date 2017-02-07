@@ -2,4 +2,14 @@
     <string name="plus_one">+1</string>
     <string name="plus_five">+5</string>
     <string name="plus_ten">+10</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="reset">RESET</string>
+    <string name="score">SCORE</string>
+    <string name="points">POINTS</string>
+    <string name="player">PLAYER</string>
+    <string name="logo">Rummikub logo</string>
 </resources>
