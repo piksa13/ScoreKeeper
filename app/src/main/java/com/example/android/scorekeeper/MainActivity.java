@@ -5,12 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import static com.example.android.scorekeeper.R.id.score1;
+
 public class MainActivity extends AppCompatActivity {
 
     int score, score2, score3, score4;
 
     public void displayForPlayer1(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.score1);
+        TextView scoreView = (TextView) findViewById(score1);
         scoreView.setText(String.valueOf(score));
     }
     public void displayForPlayer2(int score) {
@@ -25,15 +27,29 @@ public class MainActivity extends AppCompatActivity {
         TextView scoreView = (TextView) findViewById(R.id.score4);
         scoreView.setText(String.valueOf(score));
     }
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        displayForPlayer1(0);
-        displayForPlayer2(0);
-        displayForPlayer3(0);
-        displayForPlayer4(0);
     }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putInt("score", score);
+        savedInstanceState.putInt("score2", score2);
+        savedInstanceState.putInt("score3", score3);
+        savedInstanceState.putInt("score4", score4);
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        score = savedInstanceState.getInt("score");
+        score2 = savedInstanceState.getInt("score2");
+        score3 = savedInstanceState.getInt("score3");
+        score4 = savedInstanceState.getInt("score4");
+    }
+
     public void plusOne1 (View view){
         score += 1;
         displayForPlayer1(score);
